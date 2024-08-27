@@ -103,25 +103,33 @@
                 app:layout_constraintStart_toStartOf="@+id/textView2"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/todoB"
+            <TextView
+                android:id="@+id/textViewcurrent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginBottom="8dp"
-                android:text="Add Book"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Current Book"
+
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteX="6dp" />
+
+            <TextView
+                android:id="@+id/textViewcurrentbook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="20dp"
+                android:text="The Algorithm of Life"
+
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/textViewcurrent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/editProfileB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="EDIT PROFILE"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/todoB"
-                app:layout_constraintStart_toEndOf="@+id/todoB" />
 
             <ImageButton
                 android:id="@+id/profileButton"
@@ -185,7 +193,7 @@
                             android:id="@+id/image_view1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/write"
+                            android:src="@drawable/explore"
                             app:layout_constraintBottom_toTopOf="@+id/textView1"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
@@ -198,7 +206,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="CONTRIBUTE"
+                            android:text="Looking for a new book"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimary"
                             android:textSize="14sp"
@@ -233,7 +241,7 @@
                             android:id="@+id/image_view20"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/practice"
+                            android:src="@drawable/find_book"
                             app:layout_constraintBottom_toTopOf="@+id/textView20"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
@@ -246,7 +254,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="PRACTICE"
+                            android:text="Need Info about a book"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimary"
                             android:textSize="14sp"
@@ -296,7 +304,7 @@
                             android:id="@+id/image_view21"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/learn"
+                            android:src="@drawable/community"
                             app:layout_constraintBottom_toTopOf="@+id/textView21"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
@@ -309,7 +317,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="LEARN"
+                            android:text="Meet with people Like you"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimary"
                             android:textSize="14sp"
@@ -344,7 +352,7 @@
                             android:id="@+id/image_view22"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/interests"
+                            android:src="@drawable/favourite_book"
                             app:layout_constraintBottom_toTopOf="@+id/textView22"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
@@ -357,7 +365,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="INTERESTS"
+                            android:text="Your Collection"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimary"
                             android:textSize="14sp"
@@ -418,7 +426,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="HELP"
+                            android:text="US"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimary"
                             android:textSize="14sp"
@@ -434,7 +442,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/settingsCard"
+                    android:id="@+id/profileCard"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_margin="8dp"
@@ -454,7 +462,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:contentDescription="settings"
-                            android:src="@drawable/settings"
+                            android:src="@drawable/profile"
                             app:layout_constraintBottom_toTopOf="@+id/textView4"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
@@ -466,7 +474,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="SETTINGS"
+                            android:text="YOU"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimary"
                             android:textSize="14sp"

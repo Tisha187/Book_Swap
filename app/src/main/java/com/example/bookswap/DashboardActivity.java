@@ -6,6 +6,7 @@ import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -14,6 +15,8 @@ public class DashboardActivity extends AppCompatActivity {
 
     ImageButton profileButton;
 
+    CardView profileCard;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +24,11 @@ public class DashboardActivity extends AppCompatActivity {
 
         profileButton = findViewById(R.id.profileButton);
         profileButton.setOnClickListener(v -> {
+            startActivity(ProfileActivity.class);
+        });
+
+        profileCard = findViewById(R.id.profileCard);
+        profileCard.setOnClickListener(v -> {
             startActivity(ProfileActivity.class);
         });
 
