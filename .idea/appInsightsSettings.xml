@@ -27,10 +27,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.bookswap" />
+                  <option name="mobileSdkAppId" value="1:133447472432:android:f1be8bd16b2a785d5e24f5" />
+                  <option name="projectId" value="book-swap-32b21" />
+                  <option name="projectNumber" value="133447472432" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

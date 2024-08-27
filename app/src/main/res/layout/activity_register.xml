@@ -43,7 +43,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/username"
+                android:id="@+id/emailEditText"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"
@@ -53,24 +53,12 @@
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="40dp"/>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/email"
-                android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/baseline_123_24"
-                android:drawablePadding="8dp"
-                android:hint="Email"
-                android:padding="8dp"
-                android:inputType="textPassword"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="20dp"/>
+
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/password"
+                android:id="@+id/passwordEditText"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_123_24"
                 android:drawablePadding="8dp"
@@ -90,6 +78,15 @@
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/colorPrimary"
                 app:cornerRadius = "20dp"/>
+
+            <Button
+                android:id="@+id/btn_google_signup"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textSize="18sp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="Sign up with Google" />
 
         </LinearLayout>
 

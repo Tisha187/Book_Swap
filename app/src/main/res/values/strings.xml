@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BookSwap</string>
+    <string name="default_web_client_id">133447472432-7vdl2det72iau078kilos96ee21ou4hj.apps.googleusercontent.com</string>
 </resources>
