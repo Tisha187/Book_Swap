@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@drawable/custom_rectangle">
+        <!-- Search Bar -->
+        <EditText
+            android:id="@+id/et_author_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Search for an Category"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:padding="10dp"
+            android:layout_weight="9"
+            android:background="@android:drawable/editbox_background" />
+
+        <!-- Search Button -->
+        <Button
+            android:id="@+id/btn_search_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient_background"
+            android:text="Search" />
+    </LinearLayout>
+
+    <!-- Add RecyclerView or ListView here to display the results -->
+
+</LinearLayout>

@@ -174,7 +174,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/cardView">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/contributeCard"
+                    android:id="@+id/BookSearchCard"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_margin="8dp"
