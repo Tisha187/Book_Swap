@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -19,10 +20,17 @@
             android:hint="Search for an Author"
             android:drawableStart="@android:drawable/ic_menu_search"
             android:padding="10dp"
-            android:layout_weight="9"
+            android:layout_weight="8"
             android:background="@android:drawable/editbox_background" />
-
-        <!-- Search Button -->
+        <Button
+            android:id="@+id/btn_clear_results"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="X"
+            android:textColor="@color/white" />
         <Button
             android:id="@+id/btn_search_author"
             android:layout_width="wrap_content"
@@ -32,7 +40,25 @@
             android:layout_weight="1"
             android:background="@drawable/gradient_background"
             android:text="Search" />
+
+
+
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_search_result_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"/>
 
     <!-- Popular Authors Section -->
     <TextView
