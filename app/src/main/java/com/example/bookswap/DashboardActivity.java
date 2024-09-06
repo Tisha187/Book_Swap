@@ -19,6 +19,8 @@ public class DashboardActivity extends AppCompatActivity {
 
     CardView searchCard;
 
+    CardView learncard;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,11 @@ public class DashboardActivity extends AppCompatActivity {
         searchCard = findViewById(R.id.BookSearchCard);
         searchCard.setOnClickListener(v -> {
             startActivity(BookSearchActivity.class);
+        });
+
+        learncard = findViewById(R.id.learnCard);
+        learncard.setOnClickListener(v -> {
+            startActivity(CommunityActivity.class);
         });
 
     }
