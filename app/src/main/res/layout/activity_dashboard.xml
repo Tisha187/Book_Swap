@@ -285,7 +285,7 @@
 
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/learnCard"
+                    android:id="@+id/connectCard"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_margin="8dp"

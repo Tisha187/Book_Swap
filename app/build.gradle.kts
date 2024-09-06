@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.rxjava)
     implementation(libs.rxandroid)
+    implementation("com.sendbird.sdk:uikit:3.+")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import java.util.List;
@@ -62,6 +63,13 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             // Handle the case where the thumbnail URL is null (e.g., set a placeholder image)
             holder.thumbnailImageView.setImageResource(R.drawable.bookread);
         }
+
+        // Handle item click to show book details
+        holder.itemView.setOnClickListener(v -> {
+            // Create and show the dialog fragment with book details
+            BookDetailsDialogFragment dialogFragment = new BookDetailsDialogFragment(book);
+            dialogFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "bookDetails");
+        });
 
     }
 
