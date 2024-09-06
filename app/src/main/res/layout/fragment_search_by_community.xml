@@ -4,7 +4,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -18,7 +17,7 @@
         android:background="@drawable/custom_rectangle">
         <!-- Search Bar -->
         <EditText
-            android:id="@+id/et_author_name"
+            android:id="@+id/et_community_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Search for your Community"
@@ -29,7 +28,7 @@
 
         <!-- Search Button -->
         <Button
-            android:id="@+id/btn_search_author"
+            android:id="@+id/btn_search_community"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -52,9 +51,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
-<!--        android:text="@string/stay_updated_on_topics_that_matter_to_you_find_communities_to_follow_below"-->
-
+        android:layout_margin="10dp"
+        android:text="@string/stay_updated_on_topics"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/community_recyclerview"
@@ -68,8 +66,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
         android:text="Explore More"
         android:textSize="20dp" />
 

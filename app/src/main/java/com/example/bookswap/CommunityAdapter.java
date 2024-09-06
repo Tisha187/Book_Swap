@@ -38,7 +38,7 @@ public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.Comm
         Community community = ComList.get(position);
         holder.textView.setText(community.getName());
 
-        Glide.with(context).load(community.getImageUrl()).into(holder.imageView);
+        Glide.with(context).load(community.getImageUrl()).circleCrop().into(holder.imageView);
 
     }
 
