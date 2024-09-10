@@ -12,7 +12,7 @@
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_margin="5dp"
-        android:contentDescription="@string/title_name"
+        android:contentDescription="title_name"
         android:src="@drawable/bookread" />
 
     <TextView
@@ -20,6 +20,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/title_name"
+        android:text="title_name"
         android:textSize="16sp" />
 </LinearLayout>
