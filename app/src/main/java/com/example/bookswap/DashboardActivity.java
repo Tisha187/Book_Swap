@@ -19,7 +19,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     CardView searchCard;
 
-    CardView connectCard;
+    ImageButton chatButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,8 @@ public class DashboardActivity extends AppCompatActivity {
             startActivity(BookSearchActivity.class);
         });
 
-        connectCard = findViewById(R.id.connectCard);
-        connectCard.setOnClickListener(v -> {
+        chatButton = findViewById(R.id.chat);
+        chatButton.setOnClickListener(v -> {
             startActivity(MessageActivity.class);
         });
 
