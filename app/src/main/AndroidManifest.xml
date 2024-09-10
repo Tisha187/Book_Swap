@@ -36,6 +36,9 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".BookInfo"
+            android:exported="false" />
+        <activity
             android:name=".DashboardActivity"
             android:exported="true">
             <intent-filter>
