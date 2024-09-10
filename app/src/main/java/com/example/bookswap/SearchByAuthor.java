@@ -1,6 +1,7 @@
 package com.example.bookswap;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,11 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -99,6 +105,9 @@ public class SearchByAuthor extends Fragment {
             public void onClick(View v) {
                 String author = authorName.getText().toString();
 
+                // log the author name to check if it is correct
+                Log.d("SearchByAuthor", "Author name: " + author);
+
                 progressBar.setVisibility(View.VISIBLE);
 
                 Observable.fromCallable(() -> searchBooks(author))
@@ -108,7 +117,7 @@ public class SearchByAuthor extends Fragment {
                                 books -> {
                                     // Hide progress bar
                                     progressBar.setVisibility(View.GONE);
-
+                                    Log.d("SearchByAuthor", "Books: " + books);
                                     // OnSuccess: Update the UI with the search results and show the clear button
                                     searchResultsAdapter = new BookAdapter(getContext(), books);
                                     recyclerSearchResults.setAdapter(searchResultsAdapter);
@@ -118,6 +127,7 @@ public class SearchByAuthor extends Fragment {
                                 throwable -> {
                                     // Hide progress bar and show error message
                                     progressBar.setVisibility(View.GONE);
+                                    Log.e("SearchByAuthor", "Error fetching data", throwable);
                                     Toast toast = Toast.makeText(getContext(), "Error fetching data", Toast.LENGTH_SHORT);
                                     toast.show();
 
@@ -175,6 +185,10 @@ public class SearchByAuthor extends Fragment {
 
 
     private List<Book> searchBooks(String author) throws IOException {
+
+        //log
+        Log.d("SearchByAuthor", "searchBooks: author: " + author);
+
         OkHttpClient client = new OkHttpClient().newBuilder().build();
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, "{\"author\":\"" + author + "\"}");
@@ -186,18 +200,47 @@ public class SearchByAuthor extends Fragment {
 
         Response response = client.newCall(request).execute();
 
+        //log
+        Log.d("SearchByAuthor", "searchBooks: response: " + response);
+
         if (response.isSuccessful()) {
             assert response.body() != null;
             String jsonResponse = response.body().string();
+            Log.d("SearchByAuthor", "searchBooks: jsonResponse: " + jsonResponse);
             return parseBooks(jsonResponse);
         } else {
+            Log.e("SearchByAuthor", "searchBooks: Error: " + response);
             throw new IOException("Unexpected code " + response);
         }
     }
 
     private List<Book> parseBooks(String jsonResponse) {
+        List<Book> bookList = new ArrayList<>();
         Gson gson = new Gson();
-        Type bookListType = new TypeToken<List<Book>>(){}.getType();
-        return gson.fromJson(jsonResponse, bookListType);
+        JsonParser jsonParser = new JsonParser();
+
+        try {
+            // Parse the entire response as a JsonArray
+            JsonArray jsonArray = jsonParser.parse(jsonResponse).getAsJsonArray();
+
+            // Loop through each element in the JsonArray
+            for (JsonElement jsonElement : jsonArray) {
+                try {
+                    // Try to parse each individual book entry
+                    Book book = gson.fromJson(jsonElement, Book.class);
+                    bookList.add(book); // Add to list if successfully parsed
+                } catch ( JsonParseException e) {
+                    // Catch parsing exceptions for individual entries and log them
+                    Log.e("parseBooks", "Error parsing book entry: " + jsonElement.toString(), e);
+                    // Continue to the next entry
+                }
+            }
+        } catch (JsonParseException e) {
+            // Handle the case where the entire response is invalid
+            Log.e("parseBooks", "Error parsing the entire response", e);
+        }
+
+        return bookList; // Return the list with all successfully parsed books
     }
+
 }
