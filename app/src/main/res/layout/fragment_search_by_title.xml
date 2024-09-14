@@ -4,6 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,7 +15,7 @@
         android:background="@drawable/custom_rectangle">
         <!-- Search Bar -->
         <EditText
-            android:id="@+id/et_author_name"
+            android:id="@+id/et_title_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Search for an Title"
@@ -20,10 +23,19 @@
             android:padding="10dp"
             android:layout_weight="9"
             android:background="@android:drawable/editbox_background" />
+        <Button
+            android:id="@+id/btn_clear_resultsTitle"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="X"
+            android:textColor="@color/white" />
 
         <!-- Search Button -->
         <Button
-            android:id="@+id/btn_search_author"
+            android:id="@+id/btn_search_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -32,6 +44,21 @@
             android:background="@drawable/gradient_background"
             android:text="Search" />
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <!-- Add RecyclerView or ListView here to display the results -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_by_title_result_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,26 +78,9 @@
         android:layout_marginTop="16dp"
         android:orientation="horizontal"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Title for You"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_titles_for_you"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"/>
 
 
 
-    <!-- Add RecyclerView or ListView here to display the results -->
+
 
 </LinearLayout>

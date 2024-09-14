@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,10 @@ public class searchByChannel extends Fragment {
 
     private  RecyclerView recyclerViewchannel;
     private ChannelAdapter ChannelAdapter;
+
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -27,6 +33,7 @@ public class searchByChannel extends Fragment {
         //Intialize recycler view
         recyclerViewchannel = view.findViewById(R.id.channel_recyclerview);
 
+
         //layout
         recyclerViewchannel.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
 
@@ -35,8 +42,14 @@ public class searchByChannel extends Fragment {
         //Adapter
          ChannelAdapter= new ChannelAdapter(getContext(),PopularChannels);
 
+         //set Adapters to recycler view
         recyclerViewchannel.setAdapter(ChannelAdapter);
         return view;
+
+
+
+        //search button
+
     }
 
     private List<Community> loadpopularchannels() {

@@ -164,10 +164,10 @@ public class SearchByAuthor extends Fragment {
     // Mock method to load popular authors data
     private List<Author> loadPopularAuthors() {
         List<Author> authors = new ArrayList<>();
-        authors.add(new Author("Author 1", "https://picsum.photos/200/300?random=1"));
-        authors.add(new Author("Author 2", "https://picsum.photos/200/300?random=2"));
-        authors.add(new Author("Author A", "https://picsum.photos/200/300?random=3"));
-        authors.add(new Author("Author B", "https://picsum.photos/200/300?random=4"));
+        authors.add(new Author("J. K. Rowling", "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS3bDP-AbnH7l2pjO-SwJkEFQu9dxDE6V8wyJ_5x_lfkVpTMA80"));
+        authors.add(new Author("Jane Austen", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSbTRdUEIdnEchoXZV9pJe-Bky5CG6r5AmAVFdd_Uvrd3gWv2Kk"));
+        authors.add(new Author("Stephen King", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFNn6FcqJgnTCBDjX9vK_qRnle-dHO1Jp7uEEqISfNOm8bbjoW"));
+        authors.add(new Author("William Shakespeare", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqYviiqeC2-wZiAudkPo7rxFzskS0w8TEBhay0r09IPAP1kL4f"));
         // Add more authors as needed
         return authors;
     }

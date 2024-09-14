@@ -49,7 +49,7 @@ public class DashboardActivity extends AppCompatActivity {
         });
 
 
-        learncard = findViewById(R.id.learnCard);
+        learncard = findViewById(R.id.interestsCard);
         learncard.setOnClickListener(v -> {
             startActivity(CommunityActivity.class);
         });

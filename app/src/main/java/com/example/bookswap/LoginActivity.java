@@ -25,10 +25,24 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 
 public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "LoginActivity";
+    private static final String API_URL="https://f680-119-160-199-91.ngrok-free.app/check_profile";
 
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
@@ -143,11 +157,57 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            Intent intent = new Intent(this, DashboardActivity.class);
-            startActivity(intent);
-            finish(); // Finish this activity so user can't come back to it
+            checkProfileExists(user);
         }
     }
+
+    private void checkProfileExists(FirebaseUser user) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            boolean profileExists = profileExist(user);
+            runOnUiThread(() -> {
+                // Update UI on the main thread
+                if (profileExists) {
+                    Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                    startActivity(intent);
+                    finish(); // Finish this activity so user can't come back to it
+                } else {
+                    Intent intent = new Intent(LoginActivity.this, CreateProfileActivity.class);
+                    startActivity(intent);
+                    finish(); // Finish this activity so user can't come back to it
+                }
+            });
+        });
+    }
+
+    private boolean profileExist(FirebaseUser user) {
+
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"uid\":\"" + user.getUid() + "\"}");
+        Request request = new Request.Builder()
+                .url(API_URL)
+                .post(body)
+                .addHeader("Content-Type", "application/json")
+                .build();
+
+        try {
+            Response response = client.newCall(request).execute();
+            if (response.isSuccessful()) {
+                String jsonResponse = response.body().string();
+                JSONObject jsonObject = new JSONObject(jsonResponse);
+                return jsonObject.getBoolean("profileExists");
+            } else {
+                Log.e("ProfileCheck", "Error: " + response);
+            }
+        } catch (IOException | JSONException e) {
+            Log.e("ProfileCheck", "Exception: ", e);
+        }
+
+        return false;
+    }
+
+
 
     public void openRegisterActivity(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);
